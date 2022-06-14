@@ -1,0 +1,32 @@
+{
+  "name": "react.py",
+  "version": "1.0.0",
+  "description": "It's React, but in Python",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haja-fgabriel/react.py.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haja-fgabriel/react.py/issues"
+  },
+  "homepage": "https://github.com/haja-fgabriel/react.py#readme",
+  "dependencies": {
+    "pyscript": "^1.0.6"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
