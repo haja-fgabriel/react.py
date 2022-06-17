@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <title>React.py application</title>
+</head>
+
+<body>
+    <py-env>
+        <!-- - paths: !-->
+        {# {% for path in module_paths %}
+        - {{ path }}
+        {% endfor %} #}
+    </py-env>
+    <div id="_react_py_root">
+        <py-script src="app.py"></py-script>
+    </div>
+</body>
+
+</html>

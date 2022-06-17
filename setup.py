@@ -6,6 +6,6 @@ setup(
     description="It's React, but in Python",
     author="Haja Florin-Gabriel",
     author_email="haja.fgabriel@gmail.com",
-    package_dir={"": "src/"},
-    packages=find_packages("src/"),
+    package_dir={"": "react.py/"},
+    packages=find_packages("react.py/"),
 )
