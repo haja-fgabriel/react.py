@@ -50,7 +50,7 @@ def _start_livereload_server(port=5500):
     server.watch(public_folder, build_app)
     server.watch(src_folder, build_app)
 
-    server.serve(port=port, root=build_folder, debug=True)
+    server.serve(port=port, root=build_folder, debug=True, open_url_delay=4)
 
 
 def start_dev():

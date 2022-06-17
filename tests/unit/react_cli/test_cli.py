@@ -88,4 +88,6 @@ def test__start_livereload_server(mock_build_app, mock_livereload_server):
             call(os.path.join("ROOT_PATH", "src", "*"), mock_build_app),
         ]
     )
-    mock_instance.serve.assert_called_with(port=5500, root=os.path.join(ROOT_PATH, "build"), debug=True)
+    mock_instance.serve.assert_called_with(
+        port=5500, root=os.path.join(ROOT_PATH, "build"), debug=True, open_url_delay=4
+    )
