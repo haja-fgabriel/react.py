@@ -1,7 +1,16 @@
-print("Ok my man there is your app")
-print("Hello World from react.py!")
-print("<h1>WE HAVE BIG TEXT!!!</h1>")
+def app():
+    return """
+    <h2> Best frontend frameworks: </h2>
 
-from app2 import u
+    <ol>
+        <li> React.py </li>
+        <li> React.js </li>
+        <li> Angular </li>
+    </ol>
+    """
 
-print(u())
+
+from app2 import powers_of_two
+
+print(app())
+print(powers_of_two())

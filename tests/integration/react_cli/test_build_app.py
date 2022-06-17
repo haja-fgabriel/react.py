@@ -27,12 +27,14 @@ def _assert_is_not_template():
 
 
 def _assert_has_files_in_py_env():
+    src_path = os.path.join(ROOT_PATH, "src")
     with open(os.path.join(ROOT_PATH, "build", "index.html"), "r") as f:
         html_content = f.read()
-        for root, dirs, files in os.walk(os.path.join(ROOT_PATH, "src")):
+        for root, dirs, files in os.walk(src_path):
             for file in files:
                 if ".py" in file[-3:]:
-                    assert file in html_content
+                    src_relpath = os.path.join(os.path.relpath(root, start=src_path), file)
+                    assert src_relpath in html_content
 
 
 def test__copy_python_assets():
@@ -42,9 +44,12 @@ def test__copy_python_assets():
     for root, dirs, files in os.walk(os.path.join(ROOT_PATH, "src")):
         src_files += list(files)
 
+    build_files = []
     for root, dirs, files in os.walk(os.path.join(ROOT_PATH, "build")):
-        for file in src_files:
-            assert file in files
+        build_files += files
+
+    for file in src_files:
+        assert file in build_files
 
 
 def test__resolve_imports():
