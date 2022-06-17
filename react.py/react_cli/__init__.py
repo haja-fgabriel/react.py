@@ -1,6 +1,8 @@
+from contextlib import contextmanager
 import os
 import os.path
 import shutil
+import sys
 
 from livereload import Server
 
@@ -23,13 +25,23 @@ def _build_html():
     Searches through all user-developed modules and compiles the HTML templates, listing the custom modules
     """
     _create_build_folder()
+    imports = _resolve_imports()
     from jinja2 import Environment, FileSystemLoader
 
     env = Environment(loader=FileSystemLoader(os.path.join(ROOT_PATH, "public")))
     html_template = env.get_template("index.html.jinja")
-    value = html_template.render()
+    value = html_template.render(imports=imports)
     with open(os.path.join(ROOT_PATH, "build", "index.html"), "w") as g:
         g.write(value)
+
+
+def _resolve_imports():
+    imports = []
+    for root, dirs, files in os.walk(os.path.join(ROOT_PATH, "src")):
+        for file in files:
+            if ".py" in file[-3:]:
+                imports.append(file)
+    return imports
 
 
 def _copy_python_assets():

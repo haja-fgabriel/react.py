@@ -8,13 +8,17 @@
 
 <body>
     <py-env>
-        <!-- - paths: !-->
-        {# {% for path in module_paths %}
-        - {{ path }}
-        {% endfor %} #}
+        {% if imports +%}
+        - paths:
+        {%+  for path in imports +%}
+          - {{ path }}
+        {% endfor %}
+        {% endif %}
     </py-env>
     <div id="_react_py_root">
-        <py-script src="app.py"></py-script>
+        <py-script>
+        import app
+        </py-script>
     </div>
 </body>
 
