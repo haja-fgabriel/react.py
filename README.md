@@ -1,16 +1,20 @@
 # react.py
 It's React, but in Python
 
-# Installation
+# Preparing the development environment
 
-    npm install
+1. Create a new virtual environment: `python -m venv env/`
+2. Install the dependencies: `pip install -r requirements-dev.txt`
+3. Install the library as editable (for development or until it is available on PyPI): `pip install -e .` - searches for setup.py, which is going to install the `react` and `react_cli` packages as editable
 
 # Developing a project
 
-1. Type `npm run start:dev`
-2. Bring the necessary changes and save, the project will reload automatically
+    python -m react_cli dev
+
+It is going to start a live development server, which is going to reload the page automatically when saving
 
 # Building a project
 
-1. Type `npm run build`
-2. You should find your bundle in the `dist` folder
+    python -m react_cli build
+
+It is going to deliver the built assets in the build/ folder
